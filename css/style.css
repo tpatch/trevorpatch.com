@@ -662,6 +662,7 @@ input[type="button"],
     vertical-align: middle;
     width: 48%; }
     .features article .image img {
+      box-shadow: 0px 1px 6px #ddd;
       display: block;
       width: 100%; }
   .features article .inner {
