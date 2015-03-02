@@ -68,7 +68,7 @@
 /* Layers */
 
 	#titleBar {
-		background: #222;
+		background: $color-accent-bg;
 		color: #fff;
 		min-width: 320px;
 
@@ -104,7 +104,7 @@
 			}
 
 			&:before {
-				background: $color-accent-bg;
+				background: $color-accent2-bg;
 				color: $color-accent-fg-bold;
 				content: '\f0c9';
 				display: block;
