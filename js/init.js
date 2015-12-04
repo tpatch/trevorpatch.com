@@ -75,7 +75,7 @@
 				$nav_a
 					.scrolly()
 					.on('click', function(event) {
-
+						mixpanel.track("Navigation Click");
 						var $this = $(this),
 							href = $this.attr('href');
 
