@@ -51,10 +51,17 @@
 			$nav = $('#nav'), $nav_a = $nav.find('a'),
 			$wrapper = $('#wrapper');
 
-			$('input[type=reset]').on('click',function(){ mixpanel.track("Reset Form"); });
-			$('input[type=submit]').on('click',function(){ mixpanel.track("Submit Form"); });
+			$('input[type=reset]').on('click',function(){ 
+				mixpanel.track("Reset Form"); 
+				console.log("Mixpanel");
+			});
+			$('input[type=submit]').on('click',function(){ 
+				mixpanel.track("Submit Form");
+				console.log("Mixpanel");
+			});
 			$('.feature-icons a').on('click', function(){
 				var desc = $(this).attr('href');
+				console.log("Mixpanel");
 				mixpanel.track(desc);
 			});
 
