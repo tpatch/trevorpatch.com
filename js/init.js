@@ -51,6 +51,13 @@
 			$nav = $('#nav'), $nav_a = $nav.find('a'),
 			$wrapper = $('#wrapper');
 
+			$('input[type=reset]').on('click',function(){ mixpanel.track("Reset Form"); });
+			$('input[type=submit]').on('click',function(){ mixpanel.track("Submit Form"); });
+			$('.feature-icons a').on('click', function(){
+				var desc = $(this).attr('href');
+				mixpanel.track(desc);
+			});
+
 		// Forms (IE<10).
 			var $form = $('form');
 			if ($form.length > 0) {
