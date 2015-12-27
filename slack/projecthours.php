@@ -27,7 +27,7 @@ USAGE
 $command = $_POST['command'];
 $text = $_POST['text'];
 $token = $_POST['token'];
-$token = $_POST['channel_name'];
+$channelname = $_POST['channel_name'];
 
 # Check the token and make sure the request is from our team 
 if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your slash command configuration page
@@ -36,7 +36,7 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your
   echo $msg;
 }
 
-$reply = ":thumbsup: I am happy to report that *<http://".$response_array["domain"]."|".$response_array["domain"].">* is *up*!";
+$reply = ":thumbsup: I am happy to report that this slash command is *up*!";
 
 # Send the reply back to the user. 
 echo $reply;
