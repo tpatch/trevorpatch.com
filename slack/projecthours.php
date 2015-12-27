@@ -28,6 +28,7 @@ $command = $_POST['command'];
 $text = $_POST['text'];
 $token = $_POST['token'];
 $channelname = $_POST['channel_name'];
+$time = rand(1, 12);
 
 # Check the token and make sure the request is from our team 
 if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your slash command configuration page
@@ -36,7 +37,7 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your
   echo $msg;
 }
 
-$reply = ":thumbsup: I am happy to report that this slash command is *up*!";
+$reply = ":clock". $time .": Thanks, we have you down for ". $text ." hours!";
 
 # Send the reply back to the user. 
 echo $reply;
