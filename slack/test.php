@@ -20,9 +20,10 @@
         $stmt->execute();
         $stmt->bind_result($hoursbinding);
 
-        while($stmt->fetch()) {
-            printf("%d\n", $hoursbinding);
-        }
+        var_dump($stmt);
+
+        $stmt->fetch();
+        printf("%d\n", $hoursbinding);
 
         $stmt->close();
     }
