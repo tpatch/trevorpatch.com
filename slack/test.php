@@ -26,5 +26,5 @@
         $stmt->close();
     }
 
-    $mysqli->close();
+    $connect->close();
 ?>
