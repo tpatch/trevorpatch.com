@@ -26,22 +26,20 @@ if ( strpos($text, 'status') !== false ) {
     $monday = strtotime('last monday', strtotime('tomorrow'));
     $sunday = strtotime('next sunday', strtotime('yesterday'));
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
-    
-    if ($stmt = mysqli_prepare($connect, $sql)) {
-        $stmt->bind_param("sss", $channelname, $monday, $sunday);
-        $stmt->execute();
-        $stmt->bind_result($hoursbinding);
 
-        while($stmt->fetch()){
-            $totalhours = $hoursbinding;
-        };
+    $stmt = $connect->prepare($sql);
+    $stmt->bind_param("sss", $channelname, $monday, $sunday);
+    $stmt->execute();
+    $stmt->bind_result($hoursbinding);
 
-        $stmt->free_result();
+    while($stmt->fetch()){
+        $totalhours = $hoursbinding;
+    };
 
-        $reply = ":clock". $time .": There are currently ". $totalhours ." hours on the ". $channelname ." project this week.";
-    } else {
-        $reply = "Sorry, your hours couldn't be saved. Try again in a few moments.";
-    }
+    $stmt->free_result();
+
+    $reply = ":clock". $time .": There are currently ". $totalhours ." hours on the ". $channelname ." project this week.";
+
 } else if ( is_int(intval(trim($text))) ) {
     $text = intval(trim($text));
     $sql = "INSERT INTO hours VALUES (NULL, ?, ?, ?, NOW())";
