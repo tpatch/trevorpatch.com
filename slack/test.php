@@ -23,6 +23,7 @@
         var_dump($stmt);
 
         $stmt->fetch();
+        var_dump($stmt);
         printf("%d\n", $hoursbinding);
 
         $stmt->close();
