@@ -2,8 +2,8 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
-    $connect = mysqli_connect('localhost', 'trevorpatch.com', 'Y=Fx64#&kzs!g=AY', 'trevorpatchcom');
-    if (!$connect) {
+    $connect = new mysqli('localhost', 'trevorpatch.com', 'Y=Fx64#&kzs!g=AY', 'trevorpatchcom');
+    if($db->connect_errno > 0){
         $msg = "Script failed to connect to database";
         die($msg);
         echo $msg;
