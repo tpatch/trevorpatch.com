@@ -23,8 +23,8 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){
 }
 
 if ( strpos($text, 'status') !== false ) {
-    $monday = strtotime('last monday', strtotime('tomorrow'));
-    $sunday = strtotime('next sunday', strtotime('yesterday'));
+    $monday = date('Y-m-d', strtotime('last monday', strtotime('tomorrow')));
+    $sunday = date('Y-m-d', strtotime('next sunday', strtotime('yesterday')));
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
     $stmt = $connect->prepare($sql);
@@ -32,9 +32,9 @@ if ( strpos($text, 'status') !== false ) {
     $stmt->execute();
     $stmt->bind_result($hoursbinding);
 
-    while($stmt->fetch()){
-        $totalhours = $hoursbinding;
-    };
+    $stmt->fetch();
+
+    $totalhours = printf("%d\n", $hoursbinding);
 
     $stmt->free_result();
 
