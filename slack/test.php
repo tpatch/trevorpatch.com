@@ -20,11 +20,12 @@
         $stmt->execute();
         $stmt->bind_result($hoursbinding);
 
-        var_dump($stmt);
+        //var_dump($stmt);
 
-        $stmt->fetch();
-        var_dump($stmt);
-        printf("%d\n", $hoursbinding);
+        //$stmt->fetch();
+        while($stmt->fetch()) {
+            $totalhours = $hoursbinding;
+        }
 
         $stmt->close();
     }
