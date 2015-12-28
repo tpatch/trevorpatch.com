@@ -14,7 +14,7 @@
     $site = 'sanford-sitecore';
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
-    $stmt = $connect->prepare($sql);
+    $stmt = $connect->prepare("SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project");
     $stmt->bind_param("sss", $site, $monday, $sunday);
     $stmt->execute();
     $stmt->bind_result($hoursbinding);
