@@ -22,7 +22,7 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){
   echo $msg;
 }
 
-if ( strpos(trim($text), 'status') >= 0 ) {
+if ( strpos($text, 'status') !== false ) {
     $monday = strtotime('last monday', strtotime('tomorrow'));
     $sunday = strtotime('next sunday', strtotime('yesterday'));
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
