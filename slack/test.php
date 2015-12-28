@@ -19,6 +19,8 @@
     $stmt->execute();
     $stmt->bind_result($hoursbinding);
 
+    var_dump($stmt);
+
     while($stmt->fetch()){
         $totalhours = $hoursbinding;
         var_dump($hoursbinding);
