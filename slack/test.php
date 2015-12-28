@@ -11,6 +11,7 @@
 
     $monday = strtotime('last monday', strtotime('tomorrow'));
     $sunday = strtotime('next sunday', strtotime('yesterday'));
+    var_dump($monday);
     $site = 'sanford-sitecore';
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
