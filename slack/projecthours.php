@@ -22,11 +22,10 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your
   echo $msg;
 }
 
-echo $text;
-
 if ( strpos(trim($text), 'status') ) {
     $reply = ":clock". $time .": There are currently ". $text ." hours logged this week on this project.";
-} else if ( is_int(trim($text)) ) {
+} else if ( is_int(intval(trim($text))) ) {
+    $text = intval(trim($text));
     $sql = "INSERT INTO hours VALUES (NULL, ?, ?, ?, NOW())";
     if ($stmt = mysqli_prepare($connect, $sql)) {
         $stmt->bind_param("sss", $channelname, $user, $text);
