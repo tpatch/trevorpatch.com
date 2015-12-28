@@ -35,7 +35,9 @@ if ( strpos($text, 'status') !== false ) {
             $totalhours = $hoursbinding;
         };
 
-        $reply = ":clock". $time .": There are currently 8 hours on the ". $totalhours ." project this week.";
+        $stmt->close();
+
+        $reply = ":clock". $time .": There are currently ". $totalhours ." hours on the ". $channelname ." project this week.";
     } else {
         $reply = "Sorry, your hours couldn't be saved. Try again in a few moments.";
     }
