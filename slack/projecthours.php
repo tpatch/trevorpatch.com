@@ -29,11 +29,11 @@ if ( strpos($text, 'status') !== false ) {
     if ($stmt = mysqli_prepare($connect, $sql)) {
         $stmt->bind_param("sss", $channelname, $monday, $sunday);
         $stmt->execute();
+        $stmt->bind_result($hoursbinding);
 
-        $res = $stmt->get_result();
-        while($row = $res->fetch_array(MYSQLI_ASSOC)) {
-            $totalhours = $row;
-        }
+        while ($stmt->fetch()) {
+            $totalhours = $hoursbinding;
+        };
 
         $reply = ":clock". $time .": There are currently 8 hours on the ". $totalhours ." project this week.";
     } else {
