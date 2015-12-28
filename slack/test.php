@@ -22,7 +22,7 @@
 
         $stmt->fetch();
 
-        printf("%o\n", $hoursbinding);
+        printf("%d\n", $hoursbinding);
 
         $stmt->close();
     }
