@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $connect = mysqli_connect('localhost', 'trevorpatch.com', 'Y=Fx64#&kzs!g=AY', 'trevorpatchcom');
 if (!$connect) {
     $msg = "Script failed to connect to database";
@@ -31,7 +34,7 @@ if ( strpos(trim($text), 'status') ) {
         $stmt->bind_param("ssi", $channelname, $user, $text);
         $stmt->execute();
 
-        $reply = ":clock". $time .": Thanks, we have you down for ". $text ." hours!";
+        $reply = ":clock". $time .": Thanks, we have you down for ". $text ." hours on ". $channelname ."!";
     } else {
         $reply = "Sorry, your hours couldn't be saved. Try again in a few moments.";
     }
