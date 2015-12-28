@@ -39,8 +39,6 @@ if ( strpos($text, 'status') !== false ) {
     } else {
         $reply = "Sorry, your hours couldn't be saved. Try again in a few moments.";
     }
-
-    $reply = ":clock". $time .": There are currently ". $text ." hours logged this week on this project.";
 } else if ( is_int(intval(trim($text))) ) {
     $text = intval(trim($text));
     $sql = "INSERT INTO hours VALUES (NULL, ?, ?, ?, NOW())";
