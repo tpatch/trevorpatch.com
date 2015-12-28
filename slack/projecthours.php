@@ -34,11 +34,9 @@ if ( strpos($text, 'status') !== false ) {
 
     $stmt->fetch();
 
-    $totalhours = printf("%d\n", $hoursbinding);
-
     $stmt->free_result();
 
-    $reply = ":clock". $time .": There are currently ". $totalhours ." hours on the ". $channelname ." project this week.";
+    $reply = ":clock". $time .": There are currently ". printf("%d\n", $hoursbinding) ." hours on the ". $channelname ." project this week.";
 
 } else if ( is_int(intval(trim($text))) ) {
     $text = intval(trim($text));
