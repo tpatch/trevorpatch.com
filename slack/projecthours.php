@@ -26,16 +26,17 @@ if ( strpos($text, 'status') !== false ) {
     $monday = strtotime('last monday', strtotime('tomorrow'));
     $sunday = strtotime('next sunday', strtotime('yesterday'));
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
+    
     if ($stmt = mysqli_prepare($connect, $sql)) {
         $stmt->bind_param("sss", $channelname, $monday, $sunday);
         $stmt->execute();
         $stmt->bind_result($hoursbinding);
 
-        while ($stmt->fetch()) {
+        while($stmt->fetch()){
             $totalhours = $hoursbinding;
         };
 
-        $stmt->close();
+        $stmt->free_result();
 
         $reply = ":clock". $time .": There are currently ". $totalhours ." hours on the ". $channelname ." project this week.";
     } else {
