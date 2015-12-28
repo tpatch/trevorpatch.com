@@ -21,6 +21,7 @@
 
     while($stmt->fetch()){
         $totalhours = $hoursbinding;
+        var_dump($hoursbinding);
     };
 
     $stmt->free_result();
