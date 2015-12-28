@@ -9,9 +9,8 @@
         echo $msg;
     }
 
-    $monday = strtotime('last monday', strtotime('tomorrow'));
-    $sunday = strtotime('next sunday', strtotime('yesterday'));
-    var_dump($monday);
+    $monday = date('Y-m-d', strtotime('last monday', strtotime('tomorrow')));
+    $sunday = date('Y-m-d', strtotime('next sunday', strtotime('yesterday')));
     $site = 'sanford-sitecore';
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
