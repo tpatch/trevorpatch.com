@@ -42,4 +42,4 @@ if ( strpos(trim($text), 'status') ) {
 }
 
 # Send the reply back to the user. 
-//echo $reply;
+echo $reply;
