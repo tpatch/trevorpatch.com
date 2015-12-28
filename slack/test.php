@@ -27,6 +27,8 @@
             $totalhours = $hoursbinding;
         }
 
+        var_dump($totalhours);
+
         $stmt->close();
     }
 
