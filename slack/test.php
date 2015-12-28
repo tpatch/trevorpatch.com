@@ -11,10 +11,11 @@
 
     $monday = strtotime('last monday', strtotime('tomorrow'));
     $sunday = strtotime('next sunday', strtotime('yesterday'));
+    $site = 'sanford-sitecore';
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
     $stmt = $connect->prepare($sql);
-    $stmt->bind_param("sss", 'sanford-sitecore', $monday, $sunday);
+    $stmt->bind_param("sss", $site, $monday, $sunday);
     $stmt->execute();
     $stmt->bind_result($hoursbinding);
 
