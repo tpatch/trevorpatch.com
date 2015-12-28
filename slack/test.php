@@ -21,7 +21,7 @@
         $stmt->bind_result($hoursbinding);
 
         while($stmt->fetch()) {
-            sprintf("%d\n", $hoursbinding);
+            printf("%d\n", $hoursbinding);
         }
 
         $stmt->close();
