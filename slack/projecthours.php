@@ -22,7 +22,9 @@ if($token != '4P2J7rxDyWQ4by4OFrzNzwqe'){ #replace this with the token from your
   echo $msg;
 }
 
-if ( strpos($text, 'status') ) {
+echo $text;
+
+if ( strpos(trim($text), 'status') ) {
     $reply = ":clock". $time .": There are currently ". $text ." hours logged this week on this project.";
 } else if ( is_int(trim($text)) ) {
     $sql = "INSERT INTO hours VALUES (NULL, ?, ?, ?, NOW())";
@@ -41,4 +43,4 @@ if ( strpos($text, 'status') ) {
 }
 
 # Send the reply back to the user. 
-echo $reply;
+//echo $reply;
