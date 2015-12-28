@@ -14,16 +14,17 @@
     $site = 'sanford-sitecore';
     $sql = "SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project";
 
-    $stmt = $connect->prepare("SELECT SUM(hours) AS TotalHours FROM hours WHERE Project = ? AND DateAdded >= ? AND DateAdded <= ? GROUP BY Project");
-    $stmt->bind_param("sss", $site, $monday, $sunday);
-    $stmt->execute();
-    $stmt->bind_result($hoursbinding);
+    if ($stmt = $connect->prepare($sql)) {
+        $stmt->bind_param("sss", $site, $monday, $sunday);
+        $stmt->execute();
+        $stmt->bind_result($hoursbinding);
 
-    var_dump($stmt);
+        while ($stmt->fetch()) {
+            printf("%s %s\n", $hoursbinding);
+        }
 
-    while($stmt->fetch()){
-        echo $hoursbinding . "<br />";
-    };
+        $stmt->close();
+    }
 
-    $stmt->free_result();
+    $mysqli->close();
 ?>
