@@ -28,7 +28,7 @@ if ( strpos(trim($text), 'status') ) {
     $text = intval(trim($text));
     $sql = "INSERT INTO hours VALUES (NULL, ?, ?, ?, NOW())";
     if ($stmt = mysqli_prepare($connect, $sql)) {
-        $stmt->bind_param("sss", $channelname, $user, $text);
+        $stmt->bind_param("ssi", $channelname, $user, $text);
         $stmt->execute();
 
         $reply = ":clock". $time .": Thanks, we have you down for ". $text ." hours!";
