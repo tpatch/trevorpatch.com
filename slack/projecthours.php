@@ -32,6 +32,7 @@ if ( strpos($text, 'status') !== false ) {
     $stmt->execute();
     $stmt->bind_result($hoursbinding);
 
+    $totalhours = 0;
     while($stmt->fetch()) {
         $totalhours = $hoursbinding;
     }
