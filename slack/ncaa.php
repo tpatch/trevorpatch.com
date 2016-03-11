@@ -46,7 +46,7 @@ foreach($content_array as $content) {
         $equalpos = strpos($content, "=");
         $end = strlen($content);
         $title = substr($content, ($equalpos+1), $end);
-        $title = str_replace("^", "", $title);
+        $title = str_replace("^", " vs. ", $title);
         $title = str_replace("%20", " ", $title);
         $scorearray[$i]["title"] = $title;
 
